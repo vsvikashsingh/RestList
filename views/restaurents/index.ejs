@@ -1,0 +1,12 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/css/styles.css">
+<h1 class="text-center">All Restaurents</h1>
+<div class="container grouped-list">
+    
+<% for (let rest of restaurents){ %>        
+   <div class="card m-2 card-border">
+        <a href="/restaurent/<%= rest._id %>" class="btn btn-outline-info text-dark"> <%= rest.title %></a>
+        <p class="card-body"><%= rest.address %></p>
+    </div>
+    <% } %>
+</div>

@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate') %>
+<div class="container">
+    <h1>Edit Restaurent</h1>
+    
+    <form class="validated-form" action="/restaurent/<%= restaurent._id %>?_method=patch" method="post" novalidate>
+       <div>
+        <input class="form-control m-2" type="text" name="restaurent[title]" placeholder="Restaurent name" value="<%= restaurent.title %>"required>
+    </div>
+    <!-- <div>
+        <input class="form-control m-2" type="text" name="restaurent[image]" placeholder="Restaurent image" value="<%= restaurent.image %>">
+    </div> -->
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[price]" placeholder="Price" value="<%= restaurent.price %>" required>
+    </div>
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[rating]" placeholder="Rating" value="<%= restaurent.rating %>" required>
+    </div>
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[address]" placeholder="Address" value="<%= restaurent.address %>" required>
+    </div>
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[cuisine]" placeholder="Cuisine" value="<%= restaurent.cuisine %>" required>
+    </div>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    <a class="btn btn-info" href="/restaurent/<%= restaurent._id %>">Back to restaurent</a>
+</div>

@@ -1,0 +1,9 @@
+.card-border{
+    border: rgba(243, 227, 219, 0.5) transparent;
+}
+
+.grouped-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}

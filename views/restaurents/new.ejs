@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') %>
+<div class="container">   
+<form action="/restaurent" method="POST" class="validated-form" novalidate>
+        <div>
+        <input class="form-control m-2" type="text" name="restaurent[title]" placeholder="Restaurent name" required>
+    </div>
+    <!-- <div>
+        <input class="form-control m-2" type="text" name="restaurent[image]" placeholder="Restaurent image">
+    </div> -->
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[price]" placeholder="Price" required>
+    </div>
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[rating]" placeholder="Rating" required>
+    </div>
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[address]" placeholder="Address" required>
+    </div>
+    <div>
+        <input class="form-control m-2" type="text" name="restaurent[cuisine]" placeholder="Cuisine" required>
+    </div>
+        <button class="btn btn-secondary btn-lg">Submit</button>
+        <a class="btn btn-info btn-lg" href="/restaurent/">All Restaurents</a>
+    </form>
+</div> 
+    
+
+    
