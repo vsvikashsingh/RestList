@@ -33,7 +33,7 @@ import layout from 'ejs-mate';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/rest-db'
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/rest-db'
 
 mongoose.connect(dbUrl);
 const db = mongoose.connection;
