@@ -34,6 +34,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/rest-db'
+ 
 
 mongoose.connect(dbUrl);
 const db = mongoose.connection;
@@ -69,7 +70,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly:true,
-        expires: Date.now(),
+        expires: Date.now() + 1000*60*60*24,
         maxAge: 1000*60*60*24*7
     }
 }
@@ -93,6 +94,7 @@ app.use((req, res, next)=>{
     next();
 })
 
+
 //use restaurent routes
 app.use('/restaurent', restaurentRoutes);
 app.use('/restaurent/:id/reviews', reviewRoutes);
@@ -101,8 +103,7 @@ app.use('/', authRoutes);
 //serve static assets
 app.use(express.static(path.join(__dirname, 'public')))
 //prevent mongo injection
-app.use(mongoSanitize); 
-
+app.use(mongoSanitize);
 
 //basic 404 route
 app.all('*', (req, res, next)=>{

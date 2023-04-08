@@ -6,7 +6,6 @@ export const homePage = (req, res)=>{
 }
 
 export const index = catchAsync(async (req, res, next)=>{
-    
     const restaurents = await Restaurent.find({})
     res.render('restaurents/index', {restaurents});
 })
@@ -40,8 +39,6 @@ export const displayRestaurent = catchAsync(async (req, res, next)=>{
             path:'author'
         }
     }).populate('author');
-    
-    console.log(restaurent)
     if(!restaurent){
     req.flash('error', 'Restaurent not found')
     return res.redirect('/restaurent');
