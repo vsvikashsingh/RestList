@@ -96,7 +96,7 @@ app.use((req, res, next)=>{
 
 
 app.get('/', (req, res)=>{
-    res.render('home', {currentUser});
+    res.render('home');
 })
 
 //use restaurent routes
