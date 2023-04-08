@@ -1,10 +1,6 @@
 import Restaurent from '../models/restaurent.js';
 import catchAsync from '../utils/catchAsync.js';
 
-export const homePage = (req, res)=>{
-    res.render('restaurents/home')
-}
-
 export const index = catchAsync(async (req, res, next)=>{
     const restaurents = await Restaurent.find({})
     res.render('restaurents/index', {restaurents});

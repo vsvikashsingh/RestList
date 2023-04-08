@@ -95,6 +95,10 @@ app.use((req, res, next)=>{
 })
 
 
+app.get('/', (req, res)=>{
+    res.render('home');
+})
+
 //use restaurent routes
 app.use('/restaurent', restaurentRoutes);
 app.use('/restaurent/:id/reviews', reviewRoutes);

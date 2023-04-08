@@ -12,12 +12,10 @@ import { isLoggedIn } from '../middleware.js';
 const router = express.Router();
 
 //controller imports
-import { deleteRestaurent, displayRestaurent, editRestaurent, homePage, index, postNewRestaurentForSave, restaurentAddForm, updateRestaurent } from '../controllers/restaurents.js';
-
-router.get('/', homePage)
+import { deleteRestaurent, displayRestaurent, editRestaurent, index, postNewRestaurentForSave, restaurentAddForm, updateRestaurent } from '../controllers/restaurents.js';
 
 //restaurent list
-router.get('/index',index)
+router.get('/',index)
 
 //post form data for save
 router.post('/', validateRestaurent, postNewRestaurentForSave);
