@@ -62,17 +62,23 @@ store.on("error", function(e) {
     console.log("SESSION STORE ERROR", e)
 })
 
+
+//serve static assets
+app.use(express.static(path.join(__dirname, 'public')))
+//prevent mongo injection
+app.use(mongoSanitize);
+
 //configuring session
 const sessionConfig = {
     store,
     secret: 'bettersecret',
     resave: false,
     saveUninitialized: true,
-    cookie: {
-        httpOnly:true,
-        expires: Date.now() + 1000*60*60*24,
-        maxAge: 1000*60*60*24*7
-    }
+//    // cookie: {
+//         httpOnly:true,
+//         expires: Date.now() + 1000*60*60*24,
+//         maxAge: 1000*60*60*24*7
+//     //}
 }
 
 app.use(session(sessionConfig));
@@ -104,10 +110,6 @@ app.use('/restaurent', restaurentRoutes);
 app.use('/restaurent/:id/reviews', reviewRoutes);
 app.use('/', authRoutes);
 
-//serve static assets
-app.use(express.static(path.join(__dirname, 'public')))
-//prevent mongo injection
-app.use(mongoSanitize);
 
 //basic 404 route
 app.all('*', (req, res, next)=>{
