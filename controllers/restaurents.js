@@ -28,13 +28,13 @@ export const editRestaurent = catchAsync(async(req, res, next)=>{
 })
 
 export const displayRestaurent = catchAsync(async (req, res, next)=>{
-    await Restaurent.findByIdAndUpdate(req.params.id, {author: '642eff3fb3cccc71130fb185'})
     //populate review then its author then populate author of restaurent i.e. nested populate
     const restaurent = await Restaurent.findById(req.params.id).populate({path:'reviews',
         populate:{
             path:'author'
         }
     }).populate('author');
+    console.log(restaurent)
     if(!restaurent){
     req.flash('error', 'Restaurent not found')
     return res.redirect('/restaurent');
